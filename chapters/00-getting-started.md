@@ -62,13 +62,13 @@ If it does not work, you may need to restart your **Terminal** so that it recogn
 ## 2. ```"Hello, World!"```
 There are two ways that you can get your hands on with the "Hello, World!" program in Go.
 ### 2.1 The Go Playground
-You can visit [The Go Playground](https://go.dev/play/) and run the default program by clicking the **Run** button, it will display the "Hello, World!" program.
+You can visit [The Go Playground](https://go.dev/play/) (an online web-based environment designed specifically for Go-implementation) and run the default program by clicking the **Run** button, it will display the "Hello, World!" program.
 
 ![images](../images/00-getting-started/06-go-playground.png "The Go Playground")
 
 ### 2.2 Run "Hello, World!" Program with an IDE
 
-In this tutorial, I will instruct you to use Go with Visual Studio Code (VSCode). This is a matter of interest, you can write the program in whatever IDE you prefers.
+In this tutorial, I will instruct you to use Go with Visual Studio Code (VSCode). This is a matter of interest, you can write the program in whatever IDE you prefer.
 
 First, to have the best experience with the language in VSCode, you should install Go-extension for VSCode. Go to **Extentions** > **Go** (choose [this version](https://marketplace.visualstudio.com/items?itemName=golang.go) developed by the Go's developer team at Google). If you install correctly, the following file will have color marker for Go keywords as below.
 

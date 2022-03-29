@@ -1,4 +1,5 @@
 # go-for-beginner
+Please visit this [website](https://panda1835.github.io/go-for-beginner/intro.html) for the web-based content of this repo.
 ```
 .
 |__ chapters

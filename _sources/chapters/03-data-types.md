@@ -128,8 +128,8 @@ You should expect the following output when you run the above code.
 a = int
 b = float64
 ```
-### 3.3 Operators
-#### 3.3.1 Arithmetic Operators
+## 3.3 Operators
+### 3.3.1 Arithmetic Operators
 Arithmetic operators apply to numeric values and yield a result of the same type as the first operand. The following list is a summary of all arithmetic operators in Go [\[1\]][1].
 ```text
 +    sum                    integers, floats, complex values, strings
@@ -146,7 +146,7 @@ Arithmetic operators apply to numeric values and yield a result of the same type
 <<   left shift             integer << integer >= 0
 >>   right shift            integer >> integer >= 0
 ```
-#### 3.3.2 String Concatenation
+### 3.3.2 String Concatenation
 Strings can be concatenated using the + operator or the += assignment operator. String addition creates a new string by concatenating the operands [\[1\]][1].
 ```go
 // string-concatenation.go
@@ -167,10 +167,10 @@ The above code will print out
 hello world
 ```
 
-### 3.4 Composite Data Types 
+## 3.4 Composite Data Types 
 Besides the basic data types, Go supports other 8 composite data types, namely array, struct, pointer, function, interface, slice, map, and channel types [\[2\]][2].
 
-#### 3.4.1 Array
+### 3.4.1 Array
 Array is a list of elements of the same type. It can not have mixed-typed elements. The length of an array is its number of elements. The length of an array can be evaluated by the function ```len()```
 
 ``` go
@@ -201,7 +201,7 @@ arr[3] is 'hello'
 len(arr) is 10
 ```
 
-#### 3.4.2 Struct
+### 3.4.2 Struct
 Struct is a sequence of elements of the same or different types.
 
 ``` go
@@ -231,7 +231,7 @@ A
 3.8
 ```
 
-#### 3.4.3 Pointer
+### 3.4.3 Pointer
 Pointer stores the memory address of the variable. 
 
 Type `*T` is a pointer that points to a value of type `T`. Its value without initialization is `nil`.
@@ -271,7 +271,7 @@ i: 2
 p: 0xc000096008
 ```
 
-#### 3.4.4 Function 
+### 3.4.4 Function 
 
 Function type defines functions in Go
 
@@ -291,15 +291,15 @@ func main() {
 ```
 When you run this code, you should receive an output `3`.
 
-#### 3.4.5 Interface
+### 3.4.5 Interface
 
-#### 3.4.6 Slice
+### 3.4.6 Slice
 Slice is a data type that is associated with an array. It provides a way to access a block of consecutive elements in an array. It is initialized by a slice constructor, and each slice object associates with only one array. Unlike array, slice can extends its size as long as its sie belongs to the parent array.
 ``` go
 
 ```
 
-#### 3.4.7 Map
+### 3.4.7 Map
 Map data type in Go is similar to dictionary in python, where each key is attached with a value.
 ```go
 // map.go
@@ -316,7 +316,7 @@ func main() {
 ```
 In this example, we map the word form of a number with its numeric value. You should receive `10` in the output.
 
-#### 3.4.8 Channel 
+### 3.4.8 Channel 
 Channel is a unique data type in Go. As Go is designed for concurrency, it creates Channel as a way to send and receive values of a specific data types across execution threads. Here is a toy example taken from [Go by Example: Channels][6]
 
 ```go

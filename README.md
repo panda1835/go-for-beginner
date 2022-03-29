@@ -7,6 +7,6 @@ Please visit this [website](https://panda1835.github.io/go-for-beginner/intro.ht
 |__ images
 ```
 There are 3 folders.
-- Folder chapters contain all the chapter written in markdown.
-- Folder code contains demo code featured in each chapter.
-- Folder images contains images featured in each chapter.
+- Folder **chapters** contain all chapters written in markdown.
+- Folder **code** contains demo codes featured in each chapter.
+- Folder **images** contains images featured in each chapter.

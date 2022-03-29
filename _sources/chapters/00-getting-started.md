@@ -1,17 +1,4 @@
 # 0. Getting Started with Go
-
-- [0. Getting Started with Go](#0-getting-started-with-go)
-  - [1. Installation](#1-installation)
-    - [1.1 Download the Go package for MacOS](#11-download-the-go-package-for-macos)
-    - [1.2 Follow the Go Installer](#12-follow-the-go-installer)
-    - [1.3 Verify that your system recognizes Go](#13-verify-that-your-system-recognizes-go)
-  - [2. ```"Hello, World!"```](#2-hello-world)
-    - [2.1 The Go Playground](#21-the-go-playground)
-    - [2.2 Run "Hello, World!" Program with an IDE](#22-run-hello-world-program-with-an-ide)
-  - [3. Uninstall Go](#3-uninstall-go)
-  - [4. More resources to learn Go](#4-more-resources-to-learn-go)
-  - [References](#references)
-
 ## 1. Installation
 In this tutorial, I will demonstrate the process to install Go in MacOS (which pretty much follows the Go's official installation instructions [\[1\]][1]). Processes for other operating systems are similar.
 

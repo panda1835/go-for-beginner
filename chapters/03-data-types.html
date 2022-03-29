@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Data Types &#8212; Go for Beginner</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="10-appendix.html" />
+    <link rel="prev" title="2. Variables" href="02-variables.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Go for Beginner</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Go for Beginner
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-getting-started.html">
+   0. Getting Started with Go
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-history.html">
+   1. History of Go
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-variables.html">
+   2. Variables
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Data Types
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/03-data-types.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/panda1835/go-for-beginner"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/panda1835/go-for-beginner/issues/new?title=Issue%20on%20page%20%2Fchapters/03-data-types.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-go-statically-or-dynamically-typed">
+   3.1 Is Go statically or dynamically typed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-types">
+   3.2 Basic Data Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operators">
+     3.3 Operators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arithmetic-operators">
+       3.3.1 Arithmetic Operators
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-concatenation">
+       3.3.2 String Concatenation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composite-data-types">
+     3.4 Composite Data Types
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#array">
+       3.4.1 Array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#struct">
+       3.4.2 Struct
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pointer">
+       3.4.3 Pointer
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function">
+       3.4.4 Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interface">
+       3.4.5 Interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#slice">
+       3.4.6 Slice
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#map">
+       3.4.7 Map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#channel">
+       3.4.8 Channel
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability">
+   3.5 Mutability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-go-objects">
+     Mutable Go objects:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#immutable-go-objects">
+     Immutable Go objects:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>3. Data Types</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-go-statically-or-dynamically-typed">
+   3.1 Is Go statically or dynamically typed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-types">
+   3.2 Basic Data Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operators">
+     3.3 Operators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arithmetic-operators">
+       3.3.1 Arithmetic Operators
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-concatenation">
+       3.3.2 String Concatenation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composite-data-types">
+     3.4 Composite Data Types
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#array">
+       3.4.1 Array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#struct">
+       3.4.2 Struct
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pointer">
+       3.4.3 Pointer
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function">
+       3.4.4 Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interface">
+       3.4.5 Interface
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#slice">
+       3.4.6 Slice
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#map">
+       3.4.7 Map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#channel">
+       3.4.8 Channel
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability">
+   3.5 Mutability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-go-objects">
+     Mutable Go objects:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#immutable-go-objects">
+     Immutable Go objects:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-types">
+<h1>3. Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="is-go-statically-or-dynamically-typed">
+<h2>3.1 Is Go statically or dynamically typed?<a class="headerlink" href="#is-go-statically-or-dynamically-typed" title="Permalink to this headline">¶</a></h2>
+<p>Go is a strongly and statically typed language, which means that a variable of one type is known at compile time and can not be changed or automatically converted to another type throughout the program execution <a class="reference external" href="https://go.dev/tour/basics/8">[1]</a>.</p>
+<p>Although Go is a strongly typed language, it supports both explicitly and implicitly typed. Go infers the type of untyped variables from its value. The default type of an untyped constant is <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, or <code class="docutils literal notranslate"><span class="pre">string</span></code> <a class="reference external" href="https://kuree.gitbooks.io/the-go-programming-language-report/content/4/text.html">[2]</a>.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// implicit-explicit-typed.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;reflect&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="w">  </span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">3.5</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;type of a is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;type of b is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You will receive the following output for the above code</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>type of a is int
+type of b is float64
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-data-types">
+<h2>3.2 Basic Data Types<a class="headerlink" href="#basic-data-types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"></span>
+
+<span class="kt">string</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w">  </span><span class="kt">int8</span><span class="w">  </span><span class="kt">int16</span><span class="w">  </span><span class="kt">int32</span><span class="w">  </span><span class="kt">int64</span><span class="w"></span>
+<span class="kt">uint</span><span class="w"> </span><span class="kt">uint8</span><span class="w"> </span><span class="kt">uint16</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="kt">uint64</span><span class="w"> </span><span class="kt">uintptr</span><span class="w"></span>
+
+<span class="kt">byte</span><span class="w"> </span><span class="c1">// alias for uint8</span><span class="w"></span>
+
+<span class="kt">rune</span><span class="w"> </span><span class="c1">// alias for int32</span><span class="w"></span>
+<span class="w">     </span><span class="c1">// represents a Unicode code point</span><span class="w"></span>
+
+<span class="kt">float32</span><span class="w"> </span><span class="kt">float64</span><span class="w"></span>
+
+<span class="kt">complex64</span><span class="w"> </span><span class="kt">complex128</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When a variable is declared without an explicit initial value, it is given the value that corresponds to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<ul class="simple">
+<li><p>Numerics: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>Boolean: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>String: ‘’ (the empty string)</p></li>
+</ul>
+<p>Note: The int, uint, and uintptr types are usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// basic-data-types.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;math/cmplx&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">studentName</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">studentAge</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">studentGPA</span><span class="w"> </span><span class="kt">float32</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">isFemale</span><span class="w"> </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">complexNum</span><span class="w"> </span><span class="kt">complex128</span><span class="w"></span>
+
+<span class="w">	</span><span class="nx">studentName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Student A&quot;</span><span class="w"></span>
+<span class="w">	</span><span class="nx">studentAge</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">19</span><span class="w"></span>
+<span class="w">	</span><span class="nx">studentGPA</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.87</span><span class="w"></span>
+<span class="w">	</span><span class="nx">isFemale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">	</span><span class="nx">complexNum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">cmplx</span><span class="p">.</span><span class="nx">Sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">12i</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">studentName</span><span class="p">,</span><span class="w"> </span><span class="nx">studentAge</span><span class="p">,</span><span class="w"> </span><span class="nx">studentGPA</span><span class="p">,</span><span class="w"> </span><span class="nx">isFemale</span><span class="p">,</span><span class="w"> </span><span class="nx">complexNum</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">nonInt</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">nonBool</span><span class="w"> </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">nonString</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">nonInt</span><span class="p">,</span><span class="w"> </span><span class="nx">nonBool</span><span class="p">,</span><span class="w"> </span><span class="nx">nonString</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Results:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Student A 19 3.87 true (2+3i)
+&gt;&gt; 0 false &#39;&#39;
+</pre></div>
+</div>
+<p>Note that you <strong>can not</strong> do operations on variables of different data types (even between <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code>). If you run the following code, it will raise an error says <code class="docutils literal notranslate"><span class="pre">invalid</span> <span class="pre">operation:</span> <span class="pre">studentGPA</span> <span class="pre">+</span> <span class="pre">studentAge</span> <span class="pre">(mismatched</span> <span class="pre">types</span> <span class="pre">float32</span> <span class="pre">and</span> <span class="pre">int)</span></code>.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;math/cmplx&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">studentAge</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">studentGPA</span><span class="w"> </span><span class="kt">float32</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">studentGPA</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">studentAge</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For division, if you take <code class="docutils literal notranslate"><span class="pre">5</span></code> and you divide it into <code class="docutils literal notranslate"><span class="pre">2</span></code>, you will get a <code class="docutils literal notranslate"><span class="pre">2</span></code> instead of <code class="docutils literal notranslate"><span class="pre">2.5</span></code>.
+However, like any other languages, Go allows you to convert from one basic data type to another, just simply wrap the type name outside the variable. In the following example, <code class="docutils literal notranslate"><span class="pre">b</span></code> is a float conversion of int <code class="docutils literal notranslate"><span class="pre">a</span></code>. We use <code class="docutils literal notranslate"><span class="pre">reflect</span></code> module to print out the type of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// type-conversion.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">	 </span><span class="s">&quot;reflect&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">float64</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nx">a</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;a =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;b =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">reflect</span><span class="p">.</span><span class="nx">TypeOf</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You should expect the following output when you run the above code.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>a = int
+b = float64
+</pre></div>
+</div>
+<div class="section" id="operators">
+<h3>3.3 Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="arithmetic-operators">
+<h4>3.3.1 Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h4>
+<p>Arithmetic operators apply to numeric values and yield a result of the same type as the first operand. The following list is a summary of all arithmetic operators in Go <a class="reference external" href="https://go.dev/tour/basics/8">[1]</a>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+    sum                    integers, floats, complex values, strings
+-    difference             integers, floats, complex values
+*    product                integers, floats, complex values
+/    quotient               integers, floats, complex values
+%    remainder              integers
+
+&amp;    bitwise AND            integers
+|    bitwise OR             integers
+^    bitwise XOR            integers
+&amp;^   bit clear (AND NOT)    integers
+
+&lt;&lt;   left shift             integer &lt;&lt; integer &gt;= 0
+&gt;&gt;   right shift            integer &gt;&gt; integer &gt;= 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-concatenation">
+<h4>3.3.2 String Concatenation<a class="headerlink" href="#string-concatenation" title="Permalink to this headline">¶</a></h4>
+<p>Strings can be concatenated using the + operator or the += assignment operator. String addition creates a new string by concatenating the operands <a class="reference external" href="https://go.dev/tour/basics/8">[1]</a>.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// string-concatenation.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="w">  </span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">s1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">s2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot; world&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">s3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">s2</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s3</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The above code will print out</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="composite-data-types">
+<h3>3.4 Composite Data Types<a class="headerlink" href="#composite-data-types" title="Permalink to this headline">¶</a></h3>
+<p>Besides the basic data types, Go supports other 8 composite data types, namely array, struct, pointer, function, interface, slice, map, and channel types <a class="reference external" href="https://kuree.gitbooks.io/the-go-programming-language-report/content/4/text.html">[2]</a>.</p>
+<div class="section" id="array">
+<h4>3.4.1 Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h4>
+<p>Array is a list of elements of the same type. It can not have mixed-typed elements. The length of an array is its number of elements. The length of an array can be evaluated by the function <code class="docutils literal notranslate"><span class="pre">len()</span></code></p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// array.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">string</span><span class="w"></span>
+
+<span class="w">	</span><span class="nx">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;arr is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;arr[0] is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;arr[3] is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;len(arr) is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">arr</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// this statement will cause error because arr is an array of string</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// arr[0] = 1</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You should receive the following output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="ow">is</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="s1">&#39;&#39;</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">is</span> <span class="s1">&#39;hello&#39;</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="struct">
+<h4>3.4.2 Struct<a class="headerlink" href="#struct" title="Permalink to this headline">¶</a></h4>
+<p>Struct is a sequence of elements of the same or different types.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// struct.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">student</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="w">	</span><span class="nx">GPA</span><span class="w">  </span><span class="kt">float64</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nx">studentA</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">student</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">GPA</span><span class="p">:</span><span class="w"> </span><span class="mf">3.8</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">studentA</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">studentA</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">studentA</span><span class="p">.</span><span class="nx">GPA</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You should receive the following output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{A 3.8}
+A
+3.8
+</pre></div>
+</div>
+</div>
+<div class="section" id="pointer">
+<h4>3.4.3 Pointer<a class="headerlink" href="#pointer" title="Permalink to this headline">¶</a></h4>
+<p>Pointer stores the memory address of the variable.</p>
+<p>Type <code class="docutils literal notranslate"><span class="pre">*T</span></code> is a pointer that points to a value of type <code class="docutils literal notranslate"><span class="pre">T</span></code>. Its value without initialization is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator creates a pointer to the variable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> operator evaluates the value pointed by the pointer.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// pointer.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">*</span><span class="kt">int</span><span class="w"> </span><span class="c1">// initialize pointer variable</span><span class="w"></span>
+<span class="w">	</span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">	</span><span class="nx">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">i</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;==Before==&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="c1">// print value of i on its initialization</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;p:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="c1">// print pointer p (the memory address of i)</span><span class="w"></span>
+<span class="w">	</span><span class="o">*</span><span class="nx">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">*</span><span class="nx">p</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w">          </span><span class="c1">// take the value stored in p and divide it by 2</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;==After==&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="c1">// print p again to see if the memory address changes</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;p:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="c1">// print value of i to see if its value changes</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You should receive the following output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>==Before==
+i: 4
+p: 0xc000096008
+==After==
+i: 2
+p: 0xc000096008
+</pre></div>
+</div>
+</div>
+<div class="section" id="function">
+<h4>3.4.4 Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h4>
+<p>Function type defines functions in Go</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// function.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When you run this code, you should receive an output <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+</div>
+<div class="section" id="interface">
+<h4>3.4.5 Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="slice">
+<h4>3.4.6 Slice<a class="headerlink" href="#slice" title="Permalink to this headline">¶</a></h4>
+<p>Slice is a data type that is associated with an array. It provides a way to access a block of consecutive elements in an array. It is initialized by a slice constructor, and each slice object associates with only one array. Unlike array, slice can extends its size as long as its sie belongs to the parent array.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="map">
+<h4>3.4.7 Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h4>
+<p>Map data type in Go is similar to dictionary in python, where each key is attached with a value.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// map.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;ten&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">	</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;ten&quot;</span><span class="p">])</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, we map the word form of a number with its numeric value. You should receive <code class="docutils literal notranslate"><span class="pre">10</span></code> in the output.</p>
+</div>
+<div class="section" id="channel">
+<h4>3.4.8 Channel<a class="headerlink" href="#channel" title="Permalink to this headline">¶</a></h4>
+<p>Channel is a unique data type in Go. As Go is designed for concurrency, it creates Channel as a way to send and receive values of a specific data types across execution threads. Here is a toy example taken from <a class="reference external" href="https://stackoverflow.com/questions/8018081/which-types-are-mutable-and-immutable-in-the-google-go-language#:~:text=Then%20the%20answer%20is%3A%20Integer,a%20string%20variable%20is%20mutable.">Go by Example: Channels</a></p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// channel.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">messages</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;ping&quot;</span><span class="w"> </span><span class="p">}()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">messages</span><span class="w"></span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The above code will output</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ping
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mutability">
+<h2>3.5 Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">¶</a></h2>
+<p>Go has both mutable and immutable objects <a class="reference external" href="https://gobyexample.com/channels">[3]</a></p>
+<div class="section" id="mutable-go-objects">
+<h3>Mutable Go objects:<a class="headerlink" href="#mutable-go-objects" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>arrays</p></li>
+<li><p>slices</p></li>
+<li><p>maps</p></li>
+<li><p>channels</p></li>
+<li><p>structs having multiple fields</p></li>
+</ul>
+</div>
+<div class="section" id="immutable-go-objects">
+<h3>Immutable Go objects:<a class="headerlink" href="#immutable-go-objects" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>interfaces</p></li>
+<li><p>booleans</p></li>
+<li><p>int</p></li>
+<li><p>float</p></li>
+<li><p>strings</p></li>
+<li><p>pointers</p></li>
+<li><p>structs having a single field</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://go.dev/tour/basics/8">A tour of Go</a></p></li>
+<li><p><a class="reference external" href="https://kuree.gitbooks.io/the-go-programming-language-report/content/4/text.html">The Go Programming Language Report</a></p></li>
+<li><p><a class="reference external" href="https://gobyexample.com/channels">Go by Example: Channels</a></p></li>
+<li><p><a class="reference external" href="https://www.willowtreeapps.com/craft/the-pros-and-cons-of-programming-in-go#:~:text=Go%20is%20a%20strongly%2C%20statically,catch%20entire%20classes%20of%20bugs.">The pros and cons of programming in Go</a></p></li>
+<li><p><a class="reference external" href="https://go.dev/ref/spec#Constants">The Go Programming Language Specification - Constant</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/8018081/which-types-are-mutable-and-immutable-in-the-google-go-language#:~:text=Then%20the%20answer%20is%3A%20Integer,a%20string%20variable%20is%20mutable.">StackOverflow - Which types are mutable and immutable in the Google Go Language?</a></p></li>
+<li><p><a class="reference external" href="https://go.dev/ref/spec#Operators">The Go Programming Language Specification - Operators</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02-variables.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2. Variables</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="10-appendix.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Phuc Le<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -113,6 +113,7 @@ I suggest several resources here to learn more about Go.
 Website:
 1. [A tour of Go](https://go.dev/tour/list)
 2. [The Go website: Learning resources](https://go.dev/learn/)
+3. [The Go Programming Language Report](https://kuree.gitbooks.io/the-go-programming-language-report/content/)
 
 Books:
 1. [Go in Action by William Kennedy, Brian Ketelsen, and Erik St. Martin](https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781)

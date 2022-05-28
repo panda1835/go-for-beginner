@@ -1,4 +1,4 @@
-# Type System
+# 7. Type System
 
 ## User-defined types
 Go does not have classes, but it have types that support users to define their own data type. The most common way to create a new data type is by using `struct`.

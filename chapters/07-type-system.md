@@ -235,7 +235,7 @@ Brand: BMW, Color: red
 ```
 
 ## Reference:
-- Go in Action
+- Go in Action - Chapter 5.1, 5.2
 - [ToString() function in Go][2]
 
 [2]: https://stackoverflow.com/questions/13247644/tostring-function-in-go

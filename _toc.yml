@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: chapters/00-getting-started
+- file: chapters/01-history
+- file: chapters/02-variables
+- file: chapters/03-data-types
+- file: chapters/04-selection-control-structure
+- file: chapters/05-loops
+- file: chapters/06-functions
+- file: chapters/07-type-system
+- file: chapters/08-inheritance

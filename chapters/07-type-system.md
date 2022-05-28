@@ -137,11 +137,11 @@ type Car struct {
 	brand string
 }
 
-func (c *Car) changeColorWithPointer(new_color string) {
+func (c *Car) changeColorWithPointerReceiver(new_color string) {
 	c.color = new_color
 }
 
-func (c Car) changeColorWithoutPointer(new_color string) {
+func (c Car) changeColorWithValueReceiver(new_color string) {
 	c.color = new_color
 }
 
@@ -155,13 +155,14 @@ func main() {
 	fmt.Println(BMW)
 	fmt.Println("======")
 	fmt.Println("After applying change not using pointer")
-	BMW.changeColorWithoutPointer("red")
+	BMW.changeColorWithValueReceiver("red")
 	fmt.Println(BMW)
 
 	fmt.Println("After applying change using pointer")
-	BMW.changeColorWithPointer("red")
+	BMW.changeColorWithPointerReceiver("red")
 	fmt.Println(BMW)
 }
+
 ```
 You should receive an output
 ```text
@@ -174,10 +175,67 @@ After change using pointer
 {red BMW}
 ```
 
+## String() Method
+There are standard methods in Go that serves similar purpose across all objects. One of them is `String()` method, which specifies the string representation of an object. \[[2]\]
 
+Syntax
+```text
+func (<variable> <user-defined type>) String() string{
+	return <string representation of the object>
+}
+```
+
+Example
+```go
+package main
+
+import "fmt"
+
+type Car struct {
+	color string
+	brand string
+}
+
+func (c *Car) changeColor(new_color string) {
+	c.color = new_color
+}
+
+func (c Car) String() string {
+	return fmt.Sprintf("Brand: %s, Color: %s", c.brand, c.color)
+}
+
+func main() {
+	BMW := Car{
+		color: "blue",
+		brand: "BMW",
+	}
+
+	fmt.Println("Before change")
+	fmt.Println(BMW)
+
+	BMW.changeColor("red")
+
+	fmt.Println("After change")
+	fmt.Println(BMW)
+
+}
+```
+
+This method define a string representation of a Car's object to be in the format: 
+```text
+Brand: <brand name>, Color: <color>
+```
+That format is featured in the return value of `String()` method.
+The expected output of the program should be
+```text
+Before change
+Brand: BMW, Color: blue
+After change
+Brand: BMW, Color: red
+```
 
 ## Reference:
-- [Go in Action][1]
-- [A Tour of Go - Named return values][2]
+- Go in Action
+- [ToString() function in Go][2]
 
-[2]: https://go.dev/tour/basics/7
+[2]: https://stackoverflow.com/questions/13247644/tostring-function-in-go

@@ -183,7 +183,7 @@ func main() {
 ```
 When you execute the code, the ouput would be `My name is Go`.
 
-## 4.5 Short Circuit
+## Short Circuit
 
 ```go
 // short-circuit.go

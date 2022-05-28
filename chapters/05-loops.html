@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. History of Go &#8212; Go for Beginner</title>
+    <title>5. Loops &#8212; Go for Beginner</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Variables" href="02-variables.html" />
-    <link rel="prev" title="0. Getting Started with Go" href="00-getting-started.html" />
+    <link rel="next" title="6. Functions" href="06-functions.html" />
+    <link rel="prev" title="4. Selection Control Structure" href="04-selection-control-structure.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -104,8 +104,8 @@ const thebe_selector_output = ".output, .cell_output"
    0. Getting Started with Go
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-history.html">
    1. History of Go
   </a>
  </li>
@@ -124,8 +124,8 @@ const thebe_selector_output = ".output, .cell_output"
    4. Selection Control Structure
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-loops.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. Loops
   </a>
  </li>
@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapters/01-history.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/chapters/05-loops.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/panda1835/go-for-beginner//issues/new?title=Issue%20on%20page%20%2Fchapters/01-history.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/panda1835/go-for-beginner//issues/new?title=Issue%20on%20page%20%2Fchapters/05-loops.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -232,8 +232,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#reference">
+   Reference:
   </a>
  </li>
 </ul>
@@ -246,7 +246,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>1. History of Go</h1>
+                <h1>5. Loops</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -257,8 +257,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#reference">
+   Reference:
   </a>
  </li>
 </ul>
@@ -270,28 +270,57 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="history-of-go">
-<h1>1. History of Go<a class="headerlink" href="#history-of-go" title="Permalink to this headline">¶</a></h1>
-<p>The idea of Go programming language was conceived by 3 Google-ers Robert Griesemer, Rob Pike, and Ken Thompson in 2007. Stories rumored that at the time, the three were so tired of the C++’s compilation and execution complexity at Google that they wanted to create a new language which upheld the “best” characteristics of widely used languages at the time. The new language should inherit the runtime efficency of C/C++, but at the same time maintained readability and usability of Python and Javascript. Moreover, it should also be able to adapt to the new era of multicore computing and networking. Those were the main initial ideas behind the Go language (also known as Golang because its former domain name was <a class="reference external" href="http://golang.org">golang.org</a>). In November 10, 2009, the authors published it as an open-source project and accepted contributions globally. And in March 2012, they release Go 1.0.</p>
-<p>Go was born to solve many problems, among which 2 were the most notable: the development speed and concurrency. In terms of development speed, the Go’s creators tried to bridge the gap between the quickness of code developement and program performance. Notably, Go is a “weird” combination of both static and dynamic typed languages, which makes it able to offer the comfort of interpreted languages such as Python, and the efficency of compiled language such as C/C++ or Java. On the source code compilation, Go offers high-performance compiling mechanism that can helps compile a huge system in just a range of seconds. For concurrency, Go has its own mechanism of concurrency that uses less memory compared to Threads from other languages. Besides, it also has a particular design pattern to channel data among running threads that keeps the data safe from concurrent modification, thus reduce the data loss burden.</p>
-<p>Since the moment it was conceived at Google, Go was used and backed up a lot by its motherland. It was trusted by developers of Google’s index service, which was the backbone of the whole Google searching system <a class="reference external" href="https://go.dev/solutions/google/coredata">[1]</a>. In another department, it is being used to optimize page load for Chrome Optimization Guide <a class="reference external" href="https://go.dev/solutions/google/chrome">[2]</a>.</p>
-<p>Go is a general-purpose language that is suitable for scaling up large system because of its capability at parallel programming and network concurrecy. As a result, besides Google, other from-big-to-small tech companies also adopts Go to scale up their systems and infrastructures.
-Dropbox shares their story of replacing Python, their time-honoured programming language, to Go to build a more scalable infrastructure to serve a growing community of users <a class="reference external" href="https://dropbox.tech/infrastructure/open-sourcing-our-go-libraries">[3]</a>. Although Go is still a young player, it seems like Go is a naturally fit for their need that they even write and open-source many standardized Go libraries to the community.
-In Microsoft, Go is the first-class citizen of their Azure infrastructure. Because of its high speed and ability to compile static non-dependency binary files, it attracts huge investement from the Microsoft Azure development team to provide best experiences for Go developers <a class="reference external" href="https://cloudblogs.microsoft.com/opensource/2018/02/21/go-lang-brian-ketelsen-explains-fast-growth/">[4]</a>. Other than that, Microsoft also invests in Go by developing Go-extension in Visual Studio Code (VSC) that makes experiences with Go in VSC a great experience.</p>
-<p>There are a lot more stories of big tech companies sharing about their adoptation with Go and why/how they choose Go for their purposes. More stories can be found here <a class="reference external" href="https://go.dev/solutions/#case-studies">[5]</a>.</p>
-<p>Despite its presence in many modern cloud infrastructures and web services, Go is a bad option for client-side applications (such as GUI applications). Nevertheless, it is a great choice for products that are server-centered such as websites, network services, APIs, etc.</p>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p><a class="reference external" href="https://go.dev/solutions/google/coredata">How Google’s Core Data Solutions Team Uses Go</a></p></li>
-<li><p><a class="reference external" href="https://go.dev/solutions/google/chrome">Chrome Content Optimization Service Runs on Go</a></p></li>
-<li><p><a class="reference external" href="https://dropbox.tech/infrastructure/open-sourcing-our-go-libraries">Open Sourcing Our Go Libraries</a></p></li>
-<li><p><a class="reference external" href="https://cloudblogs.microsoft.com/opensource/2018/02/21/go-lang-brian-ketelsen-explains-fast-growth/">Ready, Set, Go lang: Brian Ketelsen explains Go’s fast growing popularity</a></p></li>
-<li><p><a class="reference external" href="https://go.dev/solutions/#case-studies">The Go website: Case Studies</a></p></li>
-<li><p><a class="reference external" href="https://www.geeksforgeeks.org/go-programming-language-introduction/">Geeks for Geeks: Go Programming Language (Introduction)</a></p></li>
-<li><p><a class="reference external" href="https://codilime.com/blog/go-programming-language-everything-you-should-know/">A short history of the Go language</a></p></li>
-<li><p>Go in Action: Chapter 01 - Introducing Go</p></li>
-</ol>
+  <div class="tex2jax_ignore mathjax_ignore section" id="loops">
+<h1>5. Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h1>
+<p>Go only has <code class="docutils literal notranslate"><span class="pre">for</span></code> loop <a class="reference external" href="https://go.dev/tour/flowcontrol/1">[1]</a>.</p>
+<p>Syntax</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">init</span><span class="w"> </span><span class="nx">statement</span><span class="p">&gt;;</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">conditional</span><span class="w"> </span><span class="nx">expression</span><span class="p">&gt;;</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">post</span><span class="w"> </span><span class="nx">statement</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// code block</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here are a few notes about the loop components:</p>
+<ul class="simple">
+<li><p>init statement: executes before each iteration</p></li>
+<li><p>post statement: executes after each iteration</p></li>
+<li><p>both init and post statement are optional and can be omitted</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// for-loop.go</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// calculate sum of odd numbers</span><span class="w"></span>
+<span class="w">	</span><span class="nx">sum</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">i</span><span class="w"></span>
+<span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You should expect the following result when executing the above script</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+</pre></div>
+</div>
+<div class="section" id="reference">
+<h2>Reference:<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://go.dev/tour/flowcontrol/1">A Tour of Go - For</a></p></li>
+</ul>
 </div>
 </div>
 
@@ -320,17 +349,17 @@ In Microsoft, Go is the first-class citizen of their Azure infrastructure. Becau
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="00-getting-started.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04-selection-control-structure.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">0. Getting Started with Go</p>
+            <p class="prev-next-title">4. Selection Control Structure</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02-variables.html" title="next page">
+    <a class='right-next' id="next-link" href="06-functions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. Variables</p>
+        <p class="prev-next-title">6. Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

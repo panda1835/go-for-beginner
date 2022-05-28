@@ -175,7 +175,7 @@ After change using pointer
 {red BMW}
 ```
 
-## String() Method
+## `String()` Method
 There are standard methods in Go that serves similar purpose across all objects. One of them is `String()` method, which specifies the string representation of an object. \[[2]\]
 
 Syntax

@@ -292,11 +292,26 @@ func main() {
 When you run this code, you should receive an output `3`.
 
 ### 3.4.5 Interface
+See chapter [8. Inheritance](08-inheritance.md)
 
 ### 3.4.6 Slice
-Slice is a data type that is associated with an array. It provides a way to access a block of consecutive elements in an array. It is initialized by a slice constructor, and each slice object associates with only one array. Unlike array, slice can extends its size as long as its sie belongs to the parent array.
+Slice is a data type that is associated with an array. It provides a way to access a block of consecutive elements in an array. It is initialized by a slice constructor, and each slice object associates with only one array. Unlike array, slice can extends its size as long as its size belongs to the parent array.
 ``` go
+package main
 
+import "fmt"
+
+func main() {
+	odds := [10]int{1, 3, 5, 7, 9}
+
+	var odd []int = odds[0:3]
+
+	fmt.Println(odd)
+}
+```
+Output
+```text
+[1,3,5]
 ```
 
 ### 3.4.7 Map

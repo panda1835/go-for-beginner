@@ -7,11 +7,11 @@ type Car struct {
 	brand string
 }
 
-func (c *Car) changeColorWithPointer(new_color string) {
+func (c *Car) changeColorWithPointerReceiver(new_color string) {
 	c.color = new_color
 }
 
-func (c Car) changeColorWithoutPointer(new_color string) {
+func (c Car) changeColorWithValueReceiver(new_color string) {
 	c.color = new_color
 }
 
@@ -25,10 +25,10 @@ func main() {
 	fmt.Println(BMW)
 	fmt.Println("======")
 	fmt.Println("After applying change not using pointer")
-	BMW.changeColorWithoutPointer("red")
+	BMW.changeColorWithValueReceiver("red")
 	fmt.Println(BMW)
 
 	fmt.Println("After applying change using pointer")
-	BMW.changeColorWithPointer("red")
+	BMW.changeColorWithPointerReceiver("red")
 	fmt.Println(BMW)
 }
